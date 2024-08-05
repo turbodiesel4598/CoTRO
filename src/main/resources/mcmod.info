@@ -1,7 +1,7 @@
 [{
 	"modid": "cotro",
 	"name": "CoTRO",
-	"description": "Sometimes, O(n) is worth it...",
+	"description": "Orders the registration of ContentTweaker items and blocks.",
 	"version": "${version}",
 	"mcversion": "${mcversion}",
 	"url": "https://www.curseforge.com/minecraft/mc-mods/contenttweaker-registry-orderer",

@@ -24,9 +24,7 @@ public class Transformer implements IClassTransformer {
 			ClassNode node = new ClassNode();
 			reader.accept(node, 0);
 			
-			Iterator<MethodNode> methods = node.methods.iterator();
-			while(methods.hasNext()) {
-				MethodNode m = methods.next();
+			for (MethodNode m : node.methods) {
 				
 				/*
 				public com.teamacronymcoders.base.registrysystem.Registry(java.lang.String, com.teamacronymcoders.base.IBaseMod);
@@ -80,7 +78,7 @@ public class Transformer implements IClassTransformer {
 					if (found) {
 						m.instructions.insertBefore(i, new TypeInsnNode(nw.getOpcode(), "java/util/LinkedHashMap"));
 						m.instructions.insertBefore(i, new InsnNode(dup.getOpcode()));
-						m.instructions.insertBefore(i, new MethodInsnNode(is.getOpcode(), "java/util/LinkedHashMap", new String(is.name), new String(is.desc), is.itf));
+						m.instructions.insertBefore(i, new MethodInsnNode(is.getOpcode(), "java/util/LinkedHashMap", is.name, is.desc, is.itf));
 					}
 				}
 			}
